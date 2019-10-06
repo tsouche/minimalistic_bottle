@@ -12,7 +12,7 @@ server_version = 'v1.0.0'
 
 # address of the web server
 server_address = 'localhost'
-server_port = 8080
+server_port = 8080              # MUST be the same port as in the Dockerfile
 
 
 

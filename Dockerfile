@@ -1,12 +1,12 @@
 # Use an official Python runtime as a parent image
-FROM python:3
+FROM ubuntu:18.04
 
 # -- Configuration variables
-
 # Web server listening port
 ENV PORT="8080"
 
-# ENV LC_ALL="C.UTF-8"
+# install pip
+RUN apt-get update && apt-get install -y python3-pip python3-dev && apt-get clean 
 
 # -- Install Application into container (including pipfiles):
 RUN mkdir /app

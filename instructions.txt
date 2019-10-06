@@ -42,3 +42,21 @@ $ docker push tsouche/setserver:basic
 It is now possible to fetch the image directly from the docker public registry:
 
 $ docker run -d -p 8080:8080 tsouche/setserver:basic
+
+
+##############################################################################
+
+Interesting alternative:
+The local installation in a virtual environment with pipenv work:
+  - copy the Pipfile file from the 'Discarded' directory to the project root 
+    directory
+  - run "pipenv install" to implement dependencies in the virtual environment
+  - run "pipenv shell" to activate and get in the virtual environment
+  - then launch the server: "python3 server.py"
+  and then visit following url from the navigator or with curl:
+    http://localhost:8080
+    http://localhost:8080/about
+    http://localhost:8080/hello
+  and it works !!!
+  
+##############################################################################
