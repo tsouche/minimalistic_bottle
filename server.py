@@ -25,17 +25,17 @@ if __name__ == "__main__":
     # declare few routes in order to test that the server is active
 
     # this route is used for checking that the server is up
-    @webserver.route("")
+    @webserver.route('/')
     def default():
         return "<p>Hello. Default landing page. The server is active.</p>"
 
     # this route is "hello world"
-    @webserver.route("/hello")
+    @webserver.route('/hello')
     def hello():
         return "<p>Hello :-)</p>"
 
     # this route is used to get the server version
-    @webserver.route("/about")
+    @webserver.route('/about')
     def version():
         return "<p>Server version is "+server_version+"</p>"
 
