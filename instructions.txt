@@ -1,0 +1,44 @@
+# Buil and publish a python docker image which can be used for this project
+
+We use the official docker Python image: "python:latest" (i.e. at the moment
+of writing, the Python 3.7.4 version).
+
+We also need to secure that the build tools are available. We need pip:
+
+$ sudo apt-get install python3-pip
+
+
+Actions to build the image, the corresponding docker and publishing it to the 
+public registry:
+
+# build the image
+
+$ docker build -t simpleserver .
+
+# run the container (to test the server)
+
+$ docker run -d -p 8080:8080 simpleserver
+
+
+# Test to the server:
+
+$ curl http://localhost:8080/
+$ curl http://localhost:8080/hello/
+$ curl http://localhost:8080/about/
+
+# Upload the docker image
+
+$ docker login
+
+# tag properly the image 
+
+$ docker tag simpleserver tsouche/setserver:basic
+
+# and now publish the image
+
+$ docker push tsouche/setserver:basic
+
+
+It is now possible to fetch the image directly from the docker public registry:
+
+$ docker run -d -p 8080:8080 tsouche/setserver:basic
